@@ -4,10 +4,15 @@ import { ShieldCheck, UserPlus, Info } from 'lucide-react';
 const ParentsGuardians = () => {
     return (
         <div className="parents-page">
-            <section className="section halal-pattern">
+            <section className="section hero-img img-overlay" style={{
+                backgroundImage: "url('https://images.unsplash.com/photo-1574675621113-ac7b9f697696?auto=format&fit=crop&q=80&w=2000')",
+                color: 'white'
+            }}>
                 <div className="container" style={{ textAlign: 'center' }}>
-                    <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>For Parents & Guardians</h1>
-                    <p style={{ opacity: 0.8 }}>Ensuring a safe, respectful, and family-involved path to marriage.</p>
+                    <h1 style={{ fontSize: '3rem', marginBottom: '1rem', color: 'white' }}>For Parents & Guardians</h1>
+                    <p style={{ maxWidth: '750px', margin: '0 auto', fontSize: '1.2rem', opacity: 0.9 }}>
+                        We recognize the vital role of the family in facilitating a successful and blessed marriage.
+                    </p>
                 </div>
             </section>
 

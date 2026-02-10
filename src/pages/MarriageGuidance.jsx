@@ -4,15 +4,31 @@ import { BookOpen, HelpCircle, HeartHandshake } from 'lucide-react';
 const MarriageGuidance = () => {
     return (
         <div className="guidance-page">
-            <section className="section halal-pattern">
+            <section className="section hero-img img-overlay" style={{
+                backgroundImage: "url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=2000')",
+                color: 'white'
+            }}>
                 <div className="container" style={{ textAlign: 'center' }}>
-                    <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Guidance & Counselling</h1>
-                    <p style={{ opacity: 0.8 }}>Nurturing successful Islamic marriages from the very beginning.</p>
+                    <h1 style={{ fontSize: '3rem', marginBottom: '1rem', color: 'white' }}>Guidance & Counselling</h1>
+                    <p style={{ opacity: 0.9 }}>Nurturing successful Islamic marriages from the very beginning.</p>
                 </div>
             </section>
 
             <section className="section" style={{ backgroundColor: 'white' }}>
                 <div className="container">
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', marginBottom: '4rem', alignItems: 'center' }}>
+                        <img
+                            src="https://images.unsplash.com/photo-1511520668030-97f374755a02?auto=format&fit=crop&q=80&w=1000"
+                            alt="Guidance and consultation"
+                            className="content-img"
+                        />
+                        <div>
+                            <h2 style={{ marginBottom: '1.5rem' }}>Walking the Pious Path</h2>
+                            <p style={{ opacity: 0.8, fontSize: '1.1rem' }}>
+                                Marriage in Islam is half of one's faith. We provide the educational resources and personal support needed to ensure your home is built on a foundation of Taqua and mutual respect.
+                            </p>
+                        </div>
+                    </div>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
                         <div style={{ padding: '2rem', border: '1px solid #eee', borderRadius: '15px' }}>
                             <BookOpen size={32} color="var(--primary-green)" style={{ marginBottom: '1rem' }} />

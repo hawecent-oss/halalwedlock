@@ -1,16 +1,50 @@
-# React + Vite
+# HAWESCENT - Halal Wedlock Centre
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Hawescent** is a modern, faith-based platform dedicated to promoting pious marriage and family stability. Built with Islamic values at its core, it provides a secure and dignified environment for individuals to find compatible life partners under the guidance of Shariah principles.
 
-Currently, two official plugins are available:
+## 🌟 Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Gender-Specific Registration**: Tailored onboarding for Brothers and Sisters.
+- **AI-Powered Matchmaking**: Transparent compatibility scoring (0-100%) based on Sect, Level of Practice, Marital Status, and Age.
+- **Admin Dashboard**: Real-time moderation tools for profile approval and managed matchmaking.
+- **Shariah Compliant**: Designed to involve guardians (Wali/Mahram) and maintain high moral standards.
+- **Automated Notifications**: Real-time alerts via n8n integration.
 
-## React Compiler
+## 🚀 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React.js, Vite, Vanilla CSS (Premium Aesthetics)
+- **Icons**: Lucide React
+- **Backend/DB**: Supabase (PostgreSQL with RLS)
+- **Automation**: n8n Webhooks
 
-## Expanding the ESLint configuration
+## 🛠️ Setup Instructions
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Clone the repository
+```bash
+git clone [YOUR_REPO_URL]
+cd hawescent
+```
+
+### 2. Install dependencies
+```bash
+npm install
+```
+
+### 3. Environment Variables
+Create a `.env` file in the root directory based on `.env.example`:
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+VITE_N8N_WEBHOOK_URL=your_n8n_webhook_url
+```
+
+### 4. Run Development Server
+```bash
+npm run dev
+```
+
+## 🛡️ Security & Privacy
+Hawescent prioritizes user privacy and data security through Supabase Row Level Security (RLS) policies, ensuring that sensitive information is only accessible to authorized personnel and the users themselves.
+
+---
+*Built with ❤️ for the Ummah.*

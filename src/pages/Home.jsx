@@ -6,12 +6,16 @@ const Home = () => {
     return (
         <div className="home-page">
             {/* Hero Section */}
-            <section className="section halal-pattern" style={{ textAlign: 'center', padding: 'var(--spacing-xl) 0' }}>
-                <div className="container">
-                    <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', maxWidth: '800px', margin: '0 auto 1.5rem' }}>
+            <section className="section hero-img img-overlay" style={{
+                backgroundImage: "url('https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&q=80&w=2000')",
+                padding: 'var(--spacing-xl) 0',
+                color: 'white'
+            }}>
+                <div className="container" style={{ textAlign: 'center' }}>
+                    <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', maxWidth: '800px', margin: '0 auto 1.5rem', color: 'white' }}>
                         Find Your Half in a <span style={{ color: 'var(--accent-gold)' }}>Dignified</span> Way
                     </h1>
-                    <p style={{ fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto 2rem', opacity: 0.8 }}>
+                    <p style={{ fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto 2rem', opacity: 0.9 }}>
                         Halal Wedlock Centre (Hawescent) is a faith-based platform dedicated to promoting pious marriage and family stability based on Islamic values.
                     </p>
                     <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
@@ -67,8 +71,12 @@ const Home = () => {
                         </ul>
                         <Link to="/how-it-works" className="btn btn-primary" style={{ marginTop: '2rem' }}>Learn More</Link>
                     </div>
-                    <div style={{ flex: '1', minWidth: '300px', backgroundColor: 'var(--primary-green)', height: '400px', borderRadius: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <p style={{ color: 'var(--accent-gold)', fontSize: '1.5rem', fontWeight: '700', textTransform: 'uppercase' }}>Halal & Secure</p>
+                    <div style={{ flex: '1', minWidth: '300px' }}>
+                        <img
+                            src="https://images.unsplash.com/photo-1512412023212-f054a9ff3f0f?auto=format&fit=crop&q=80&w=1000"
+                            alt="Serene Islamic environment"
+                            className="content-img"
+                        />
                     </div>
                 </div>
             </section>
