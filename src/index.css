@@ -119,6 +119,54 @@ button {
     url('https://www.transparenttextures.com/patterns/islamic-art.png');
 }
 
+/* Enclave Slideshow Refresh */
+.enclave-container {
+  position: relative;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  border: 6px solid var(--accent-gold);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg), 0 0 40px rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-green);
+  z-index: 10;
+}
+
+.slideshow-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.slideshow-img.active {
+  opacity: 1;
+}
+
+.enclave-overlay {
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(27, 67, 50, 0.95);
+  color: var(--accent-gold);
+  padding: 0.5rem 2rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 15;
+  white-space: nowrap;
+  border: 1px solid var(--accent-gold);
+}
+
+/* Base Buttons Refresh */
 .btn-primary {
   background-color: var(--primary-green);
   color: var(--white);

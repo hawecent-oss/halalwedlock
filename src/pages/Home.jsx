@@ -1,26 +1,72 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, Users, BookOpen, CheckCircle } from 'lucide-react';
+import african1 from '../assets/african_1.jpg';
+import african2 from '../assets/african_2.jpg';
+import african3 from '../assets/african_3.jpg';
 
 const Home = () => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const slides = [
+        {
+            url: african1,
+            label: "Dignified Companionship"
+        },
+        {
+            url: african2,
+            label: "Blessed Future"
+        },
+        {
+            url: african3,
+            label: "Pious Unions"
+        }
+    ];
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide(prev => (prev + 1) % slides.length);
+        }, 4000);
+        return () => clearInterval(timer);
+    }, []);
+
     return (
         <div className="home-page">
             {/* Hero Section */}
             <section className="section hero-img img-overlay" style={{
-                backgroundImage: "url('https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&q=80&w=2000')",
+                backgroundColor: 'var(--primary-green)',
+                backgroundImage: "url('https://www.transparenttextures.com/patterns/islamic-art.png')",
                 padding: 'var(--spacing-xl) 0',
                 color: 'white'
             }}>
-                <div className="container" style={{ textAlign: 'center' }}>
-                    <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', maxWidth: '800px', margin: '0 auto 1.5rem', color: 'white' }}>
-                        Find Your Half in a <span style={{ color: 'var(--accent-gold)' }}>Dignified</span> Way
-                    </h1>
-                    <p style={{ fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto 2rem', opacity: 0.9 }}>
-                        Halal Wedlock Centre (Hawescent) is a faith-based platform dedicated to promoting pious marriage and family stability based on Islamic values.
-                    </p>
-                    <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-                        <Link to="/register/male" className="btn btn-primary">Male Registration</Link>
-                        <Link to="/register/female" className="btn btn-accent">Female Registration</Link>
+                <div className="container" style={{ display: 'flex', alignItems: 'center', gap: '4rem', flexWrap: 'wrap-reverse' }}>
+                    <div style={{ flex: '1.2', minWidth: '320px', textAlign: 'left' }}>
+                        <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', color: 'white' }}>
+                            Find Your Half in a <span style={{ color: 'var(--accent-gold)' }}>Dignified</span> Way
+                        </h1>
+                        <p style={{ fontSize: '1.25rem', marginBottom: '2rem', opacity: 0.9 }}>
+                            Halal Wedlock Centre (Hawescent) is a faith-based platform dedicated to promoting pious marriage and family stability within the African Muslim community based on Islamic values.
+                        </p>
+                        <div style={{ display: 'flex', gap: '1rem' }}>
+                            <Link to="/register/male" className="btn btn-primary">Male Registration</Link>
+                            <Link to="/register/female" className="btn btn-accent">Female Registration</Link>
+                        </div>
+                    </div>
+
+                    <div style={{ flex: '1', display: 'flex', justifyContent: 'center', minWidth: '320px' }}>
+                        <div className="enclave-container">
+                            {slides.map((slide, index) => (
+                                <div key={index}>
+                                    <img
+                                        src={slide.url}
+                                        alt={slide.label}
+                                        className={`slideshow-img ${currentSlide === index ? 'active' : ''}`}
+                                    />
+                                    {currentSlide === index && (
+                                        <div className="enclave-overlay">{slide.label}</div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
@@ -73,8 +119,8 @@ const Home = () => {
                     </div>
                     <div style={{ flex: '1', minWidth: '300px' }}>
                         <img
-                            src="https://images.unsplash.com/photo-1512412023212-f054a9ff3f0f?auto=format&fit=crop&q=80&w=1000"
-                            alt="Serene Islamic environment"
+                            src="https://images.unsplash.com/photo-1585036156171-3839efc229b7?auto=format&fit=crop&q=80&w=1000"
+                            alt="Islamic guidance and spiritual counsel"
                             className="content-img"
                         />
                     </div>
