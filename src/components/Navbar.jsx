@@ -7,15 +7,12 @@ const Navbar = () => {
 
     return (
         <nav style={{ backgroundColor: 'var(--white)', borderBottom: '1px solid #e5e7eb', position: 'sticky', top: 0, zIndex: 1000 }}>
-            <div className="container" style={{ height: '80px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <Heart fill="var(--accent-gold)" color="var(--accent-gold)" />
-                    <span style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--primary-green)', fontFamily: 'Playfair Display, serif' }}>
-                        Hawescent
-                    </span>
+            <div className="container nav-container">
+                <Link to="/" className="nav-logo" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <img src="/src/assets/logo.png" alt="Hawecent Logo" style={{ height: '60px', width: 'auto' }} />
                 </Link>
 
-                <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
+                <div className="nav-links">
                     <Link to="/about">About</Link>
                     <Link to="/how-it-works">How it Works</Link>
                     <Link to="/guidance">Guidance</Link>

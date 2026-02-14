@@ -21,7 +21,7 @@ const ParentsGuardians = () => {
                     <div style={{ padding: '3rem', border: '1px solid var(--accent-gold)', borderRadius: '20px', marginBottom: '4rem' }}>
                         <h2 style={{ marginBottom: '1.5rem', color: 'var(--primary-green)' }}>Our Promise to You</h2>
                         <p style={{ marginBottom: '1.5rem', fontSize: '1.1rem' }}>
-                            We understand that as a Wali or guardian, your priority is the protection and success of your child or ward. Hawescent is built to support your role, not bypass it.
+                            We understand that as a Wali or guardian, your priority is the protection and success of your child or ward. Hawecent is built to support your role, not bypass it.
                         </p>
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
                             <div style={{ display: 'flex', gap: '1rem' }}>

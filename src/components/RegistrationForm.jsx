@@ -228,7 +228,10 @@ const RegistrationForm = ({ gender }) => {
 
         } catch (error) {
             console.error('Error submitting registration:', error);
-            setSubmitStatus({ type: 'error', message: 'Error submitting registration. Please try again later.' });
+            setSubmitStatus({
+                type: 'error',
+                message: `Error: ${error.message || 'Unknown error occurred'}. Please try again or contact support.`
+            });
         } finally {
             setIsSubmitting(false);
         }
@@ -721,7 +724,7 @@ const RegistrationForm = ({ gender }) => {
                             )}
 
                             <p style={{ fontSize: '0.8rem', opacity: 0.6, textAlign: 'center', marginTop: '1rem' }}>
-                                All submissions are confidential and reviewed by Hawescent Admin for Halal compliance.
+                                All submissions are confidential and reviewed by Hawecent Admin for Halal compliance.
                             </p>
                         </div>
                     )}

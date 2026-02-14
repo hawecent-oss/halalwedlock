@@ -9,9 +9,9 @@ const About = () => {
                 color: 'white'
             }}>
                 <div className="container" style={{ textAlign: 'center' }}>
-                    <h1 style={{ fontSize: '3rem', marginBottom: '1rem', color: 'white' }}>About Hawescent</h1>
+                    <h1 style={{ fontSize: '3rem', marginBottom: '1rem', color: 'white' }}>About Hawecent</h1>
                     <p style={{ maxWidth: '700px', margin: '0 auto', fontSize: '1.2rem', opacity: 0.9 }}>
-                        Halal Wedlock Centre (Hawescent) is more than a matchmaking site; it's a movement towards restoring the sanctity of the Muslim family unit.
+                        Halal Wedlock Centre (Hawecent) is more than a matchmaking site; it's a movement towards restoring the sanctity of the Muslim family unit.
                     </p>
                 </div>
             </section>
@@ -27,7 +27,7 @@ const About = () => {
                             style={{ marginBottom: '2rem' }}
                         />
                         <p style={{ marginBottom: '1rem' }}>
-                            In an age where modern dating culture often conflicts with Islamic values, Hawescent provides a sanctuary for Muslims to find their lifelong partners through a process that is dignified, modest, and strictly compliant with the Shariah.
+                            In an age where modern dating culture often conflicts with Islamic values, Hawecent provides a sanctuary for Muslims to find their lifelong partners through a process that is dignified, modest, and strictly compliant with the Shariah.
                         </p>
                         <p>
                             We aim to reduce the prevalence of adultery and fornication by facilitating early and piously guided marriages, while also providing the tools necessary for long-term marital success.

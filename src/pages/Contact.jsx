@@ -30,7 +30,7 @@ const Contact = () => {
                                 <div style={{ padding: '1rem', background: 'var(--background-cream)', borderRadius: '50%' }}><Mail color="var(--primary-green)" /></div>
                                 <div>
                                     <h4 style={{ margin: 0 }}>Email</h4>
-                                    <p style={{ opacity: 0.7 }}>hawescents@gmail.com</p>
+                                    <p style={{ opacity: 0.7 }}>hawecents@gmail.com</p>
                                 </div>
                             </div>
                             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>

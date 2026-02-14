@@ -18,7 +18,7 @@ const PrivacyPolicy = () => {
                             <Shield color="var(--primary-green)" /> Islamic Compliance
                         </h2>
                         <p>
-                            Hawescent is built on the foundation of the Quran and Sunnah. We strictly prohibit any behavior that contradicts Islamic values. This includes, but is not limited to:
+                            Hawecent is built on the foundation of the Quran and Sunnah. We strictly prohibit any behavior that contradicts Islamic values. This includes, but is not limited to:
                         </p>
                         <ul style={{ margin: '1rem 0', paddingLeft: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                             <li>No private chatting between non-mahrams without moderation or guardian involvement.</li>

@@ -5,7 +5,7 @@ const Testimonials = () => {
     const reviews = [
         {
             name: "Abubakar & Fatima",
-            text: "Hawescent provided a respectful environment that made us feel safe. The involvement of our families from the start was the key to our successful union.",
+            text: "Hawecent provided a respectful environment that made us feel safe. The involvement of our families from the start was the key to our successful union.",
             date: "October 2025"
         },
         {

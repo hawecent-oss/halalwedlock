@@ -247,4 +247,71 @@ button {
     width: 100%;
     text-align: center;
   }
+
+  /* Mobile Navbar Fixes */
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 0.5rem;
+    width: 100%;
+  }
+
+  /* Mobile Footer Fixes */
+  footer .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  footer ul {
+    align-items: center;
+  }
+}
+
+/* Navbar Utilities */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    width: 100%;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+  }
+
+  .nav-logo img {
+    height: 50px !important;
+    /* Slightly smaller on mobile */
+  }
 }
