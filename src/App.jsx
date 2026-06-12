@@ -11,6 +11,7 @@ import HowItWorks from './pages/HowItWorks';
 import Register from './pages/Register';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import SeekerDashboard from './pages/dashboard/SeekerDashboard';
+import WaliDashboard from './pages/dashboard/WaliDashboard';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -23,6 +24,7 @@ function App() {
           {/* Admin Routes - No layout (Navbar/Footer) wrapper */}
           <Route path="/superadmin/*" element={<AdminDashboard />} />
           <Route path="/dashboard/*" element={<SeekerDashboard />} />
+          <Route path="/wali-dashboard/*" element={<WaliDashboard />} />
           
           {/* Public Routes with Layout */}
           <Route path="*" element={
