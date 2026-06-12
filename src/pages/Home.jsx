@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CheckCircle, ShieldCheck, Heart, Star, Truck, Shield } from 'lucide-react';
-import ProductCard from '../components/ProductCard';
+import { ShieldCheck, Heart, Users, Star, CheckCircle, Lock } from 'lucide-react';
 import FloatingWhatsApp from '../components/FloatingWhatsApp';
 
 import heroImage from '../assets/hero_couple.png';
-import perfume1 from '../assets/perfume_1.png';
-import perfume2 from '../assets/perfume_2.png';
 import familyImage from '../assets/family.png';
+import weddingImage from '../assets/wedding.png';
 
 const Home = () => {
     return (
@@ -17,7 +15,7 @@ const Home = () => {
             {/* Hero Section */}
             <section style={{
                 position: 'relative',
-                minHeight: '80vh',
+                minHeight: '85vh',
                 display: 'flex',
                 alignItems: 'center',
                 padding: '4rem 0',
@@ -33,7 +31,7 @@ const Home = () => {
                     backgroundImage: `url(${heroImage})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    opacity: 0.35,
+                    opacity: 0.4,
                     mixBlendMode: 'overlay'
                 }}></div>
                 <div style={{
@@ -42,10 +40,10 @@ const Home = () => {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    background: 'linear-gradient(to right, rgba(6,78,59,0.95) 0%, rgba(6,78,59,0.7) 100%)'
+                    background: 'linear-gradient(to right, rgba(6,78,59,0.95) 0%, rgba(6,78,59,0.6) 100%)'
                 }}></div>
                 
-                <div className="container" style={{ position: 'relative', zIndex: 10, color: 'var(--white)', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+                <div className="container" style={{ position: 'relative', zIndex: 10, color: 'var(--white)', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', maxWidth: '800px' }}>
                     <span style={{ 
                         display: 'inline-block',
                         padding: '0.5rem 1rem', 
@@ -58,18 +56,18 @@ const Home = () => {
                         textTransform: 'uppercase',
                         marginBottom: '1.5rem',
                         border: '1px solid rgba(212, 175, 55, 0.4)'
-                    }}>Crafted for the Modern Muslim Family</span>
+                    }}>Bismillah. Start Your Journey Here.</span>
                     
                     <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', lineHeight: '1.1', marginBottom: '1.5rem', color: 'var(--white)', textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
-                        Fragrance Inspired by <span style={{ color: 'var(--accent-gold)', fontStyle: 'italic' }}>Faith</span>, Elegance & Excellence
+                        Find Your <span style={{ color: 'var(--accent-gold)', fontStyle: 'italic' }}>Halal</span> Life Partner
                     </h1>
                     
-                    <p style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)', marginBottom: '2.5rem', opacity: 0.9, lineHeight: '1.6', maxWidth: '700px', margin: '0 auto 2.5rem auto' }}>
-                        Premium scents crafted for Muslim individuals and families who value purity, sophistication and lasting impressions.
+                    <p style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)', marginBottom: '2.5rem', opacity: 0.9, lineHeight: '1.6', maxWidth: '600px' }}>
+                        Join the most trusted matchmaking platform for African Muslims. We focus on Deen, character, and compatibility to help you complete half your faith.
                     </p>
                     
-                    <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', width: '100%' }}>
-                        <Link to="/shop" style={{ 
+                    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                        <Link to="/register" style={{ 
                             padding: '1rem 2.5rem', 
                             backgroundColor: 'var(--accent-gold)', 
                             color: 'var(--primary-green)', 
@@ -80,8 +78,8 @@ const Home = () => {
                             letterSpacing: '1px',
                             transition: 'all 0.3s ease',
                             boxShadow: '0 4px 15px rgba(212, 175, 55, 0.4)'
-                        }}>Shop Now</Link>
-                        <Link to="/collections" style={{ 
+                        }}>Create Free Profile</Link>
+                        <Link to="/how-it-works" style={{ 
                             padding: '1rem 2.5rem', 
                             backgroundColor: 'transparent', 
                             color: 'var(--white)', 
@@ -92,118 +90,110 @@ const Home = () => {
                             letterSpacing: '1px',
                             border: '2px solid var(--white)',
                             transition: 'all 0.3s ease'
-                        }}>Explore Collection</Link>
+                        }}>How It Works</Link>
+                    </div>
+
+                    <div style={{ display: 'flex', gap: '2rem', marginTop: '3rem', borderTop: '1px solid rgba(255,255,255,0.2)', paddingTop: '2rem', width: '100%' }}>
+                        <div>
+                            <div style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--accent-gold)' }}>5,000+</div>
+                            <div style={{ fontSize: '0.85rem', opacity: 0.8, textTransform: 'uppercase', letterSpacing: '1px' }}>Active Members</div>
+                        </div>
+                        <div>
+                            <div style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--accent-gold)' }}>500+</div>
+                            <div style={{ fontSize: '0.85rem', opacity: 0.8, textTransform: 'uppercase', letterSpacing: '1px' }}>Successful Marriages</div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Trust / Why Choose Us Section */}
-            <section style={{ padding: '4rem 0', backgroundColor: 'var(--white)' }}>
+            {/* Why Choose Us Section */}
+            <section style={{ padding: '5rem 0', backgroundColor: 'var(--white)' }}>
                 <div className="container">
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'center', textAlign: 'center' }}>
+                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                        <span style={{ color: 'var(--accent-gold)', fontWeight: '600', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem' }}>The Halalwedlock Difference</span>
+                        <h2 style={{ fontSize: '2.5rem', color: 'var(--primary-green)', marginTop: '0.5rem' }}>Matchmaking Based on Islamic Principles</h2>
+                    </div>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
                         {[
-                            { icon: <ShieldCheck size={32} color="var(--accent-gold)" />, title: 'Halal Friendly', desc: '100% alcohol-free options' },
-                            { icon: <Star size={32} color="var(--accent-gold)" />, title: 'Premium Ingredients', desc: 'Sourced globally' },
-                            { icon: <CheckCircle size={32} color="var(--accent-gold)" />, title: 'Long Lasting', desc: 'Up to 48 hours projection' },
-                            { icon: <Heart size={32} color="var(--accent-gold)" />, title: 'Trusted by Families', desc: 'Loved by thousands' },
-                            { icon: <Truck size={32} color="var(--accent-gold)" />, title: 'Nationwide Delivery', desc: 'Fast & reliable' }
+                            { icon: <ShieldCheck size={40} color="var(--accent-gold)" />, title: 'Verified Profiles', desc: 'Every profile is manually vetted to ensure authenticity and serious intentions.' },
+                            { icon: <Lock size={40} color="var(--accent-gold)" />, title: 'Privacy & Modesty', desc: 'Your photos and details are private. You control who sees your full profile.' },
+                            { icon: <Users size={40} color="var(--accent-gold)" />, title: 'Wali Involvement', option: 'Optional', desc: 'Easily include your Wali (guardian) in conversations for transparency and blessing.' },
+                            { icon: <Heart size={40} color="var(--accent-gold)" />, title: 'Deen-Focused', desc: 'Our algorithm matches you based on Islamic values, lifestyle, and life goals.' }
                         ].map((item, idx) => (
-                            <div key={idx} style={{ flex: '1 1 150px', maxWidth: '200px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
-                                <div style={{ backgroundColor: 'var(--background-cream)', padding: '1rem', borderRadius: '50%' }}>
+                            <div key={idx} style={{ 
+                                padding: '2.5rem', 
+                                backgroundColor: 'var(--background-cream)', 
+                                borderRadius: '12px',
+                                textAlign: 'center',
+                                transition: 'transform 0.3s ease',
+                                cursor: 'default'
+                            }} className="feature-card">
+                                <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>
                                     {item.icon}
                                 </div>
-                                <div>
-                                    <h4 style={{ color: 'var(--primary-green)', marginBottom: '0.3rem', fontSize: '1.1rem' }}>{item.title}</h4>
-                                    <p style={{ fontSize: '0.85rem', color: '#666' }}>{item.desc}</p>
-                                </div>
+                                <h3 style={{ color: 'var(--primary-green)', marginBottom: '1rem', fontSize: '1.25rem' }}>
+                                    {item.title} {item.option && <span style={{ fontSize: '0.8rem', backgroundColor: 'var(--accent-gold)', color: 'white', padding: '0.2rem 0.5rem', borderRadius: '4px', verticalAlign: 'middle', marginLeft: '0.5rem' }}>{item.option}</span>}
+                                </h3>
+                                <p style={{ color: '#666', lineHeight: '1.6', fontSize: '0.95rem' }}>{item.desc}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Featured Products */}
-            <section style={{ padding: '6rem 0' }}>
-                <div className="container">
-                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <span style={{ color: 'var(--accent-gold)', fontWeight: '600', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem' }}>Curated Selection</span>
-                        <h2 style={{ fontSize: '3rem', color: 'var(--primary-green)', marginTop: '0.5rem' }}>Signature Fragrances</h2>
+            {/* How It Works Section */}
+            <section style={{ padding: '6rem 0', backgroundColor: 'var(--background-alt)' }}>
+                <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+                    <div style={{ order: 2 }}>
+                        <img src={familyImage} alt="Happy Muslim Family" style={{ width: '100%', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }} />
                     </div>
-
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
-                        <ProductCard 
-                            image={perfume1}
-                            title="Oud Al-Amir"
-                            price="₦45,000"
-                            rating="4.9"
-                            reviews="128"
-                            description="A majestic blend of pure aged oud, rich amber, and subtle hints of spicy saffron. Perfect for special occasions."
-                        />
-                        <ProductCard 
-                            image={perfume2}
-                            title="Rose of Madinah"
-                            price="₦32,500"
-                            rating="4.8"
-                            reviews="95"
-                            description="Delicate Taif rose interwoven with warm vanilla and white musk. A soft, elegant scent for the modern Muslimah."
-                        />
-                        <ProductCard 
-                            image={familyImage}
-                            title="Family Heritage Set"
-                            price="₦85,000"
-                            rating="5.0"
-                            reviews="42"
-                            description="A luxurious collection of our finest 4 fragrances, beautifully packaged. The perfect Eid or wedding gift."
-                        />
-                    </div>
-                    
-                    <div style={{ textAlign: 'center', marginTop: '4rem' }}>
-                        <Link to="/shop" style={{ 
-                            display: 'inline-block',
-                            padding: '1rem 3rem', 
-                            backgroundColor: 'transparent', 
-                            color: 'var(--primary-green)', 
-                            fontWeight: '600', 
-                            border: '2px solid var(--primary-green)',
-                            borderRadius: '4px',
+                    <div style={{ order: 1 }}>
+                        <span style={{ color: 'var(--accent-gold)', fontWeight: '600', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem' }}>Simple Process</span>
+                        <h2 style={{ fontSize: '2.5rem', color: 'var(--primary-green)', marginTop: '0.5rem', marginBottom: '2rem' }}>How Halalwedlock Works</h2>
+                        
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                            {[
+                                { step: '01', title: 'Create Your Profile', desc: 'Sign up and answer questions about your Deen, lifestyle, and what you seek in a spouse.' },
+                                { step: '02', title: 'Discover Matches', desc: 'Review curated profiles of practicing Muslims who align with your values and goals.' },
+                                { step: '03', title: 'Connect Securely', desc: 'Initiate contact in a safe, moderated environment. Involve your Wali whenever you are ready.' },
+                                { step: '04', title: 'Complete Half Your Deen', desc: 'Insha\'Allah, find your match and proceed to Nikah with the blessings of your families.' }
+                            ].map((item, idx) => (
+                                <div key={idx} style={{ display: 'flex', gap: '1.5rem' }}>
+                                    <div style={{ 
+                                        width: '50px', 
+                                        height: '50px', 
+                                        borderRadius: '50%', 
+                                        backgroundColor: 'rgba(6,78,59,0.1)', 
+                                        color: 'var(--primary-green)', 
+                                        display: 'flex', 
+                                        alignItems: 'center', 
+                                        justifyContent: 'center',
+                                        fontWeight: '700',
+                                        fontSize: '1.2rem',
+                                        flexShrink: 0
+                                    }}>{item.step}</div>
+                                    <div>
+                                        <h4 style={{ color: 'var(--primary-green)', fontSize: '1.2rem', marginBottom: '0.5rem' }}>{item.title}</h4>
+                                        <p style={{ color: '#666', lineHeight: '1.6', fontSize: '0.95rem' }}>{item.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        
+                        <Link to="/how-it-works" style={{ 
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '0.5rem',
+                            marginTop: '2.5rem', 
+                            color: 'var(--accent-gold)', 
+                            fontWeight: '600',
                             textDecoration: 'none',
                             textTransform: 'uppercase',
                             letterSpacing: '1px'
-                        }}>View All Products</Link>
-                    </div>
-                </div>
-            </section>
-
-            {/* Islamic Values Section */}
-            <section style={{ padding: '6rem 0', backgroundColor: 'var(--secondary-green)', color: 'var(--white)' }}>
-                <div className="container">
-                    <div style={{ textAlign: 'center', marginBottom: '4rem', maxWidth: '700px', margin: '0 auto 4rem auto' }}>
-                        <h2 style={{ fontSize: '3rem', color: 'var(--accent-gold)', marginBottom: '1rem' }}>Our Values</h2>
-                        <p style={{ fontSize: '1.1rem', opacity: 0.9 }}>
-                            Our mission is to provide premium fragrances that align with Islamic values while helping Muslims express confidence, dignity and excellence.
-                        </p>
-                    </div>
-
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
-                        {[
-                            { title: 'Ihsan', sub: 'Excellence', desc: 'Crafting the highest quality fragrances with attention to every detail.' },
-                            { title: 'Amanah', sub: 'Trustworthiness', desc: 'Transparent ingredient sourcing and honest business practices.' },
-                            { title: 'Taharah', sub: 'Purity', desc: 'Ensuring our products are clean, pure, and halal compliant.' },
-                            { title: 'Usrah', sub: 'Family', desc: 'Creating scents that become part of beautiful family memories.' },
-                            { title: 'Ummah', sub: 'Community', desc: 'Giving back to the Muslim community and supporting ethical trade.' }
-                        ].map((val, idx) => (
-                            <div key={idx} style={{ 
-                                backgroundColor: 'rgba(255,255,255,0.05)', 
-                                padding: '2rem', 
-                                borderRadius: '12px',
-                                border: '1px solid rgba(212, 175, 55, 0.2)',
-                                textAlign: 'center'
-                            }}>
-                                <h3 style={{ color: 'var(--accent-gold)', fontSize: '1.8rem', marginBottom: '0.2rem', fontFamily: 'Playfair Display, serif' }}>{val.title}</h3>
-                                <div style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px', opacity: 0.7, marginBottom: '1rem' }}>({val.sub})</div>
-                                <p style={{ fontSize: '0.95rem', opacity: 0.9, lineHeight: '1.6' }}>{val.desc}</p>
-                            </div>
-                        ))}
+                        }}>
+                            Learn more about our process
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -212,36 +202,73 @@ const Home = () => {
             <section style={{ padding: '6rem 0', backgroundColor: 'var(--white)' }}>
                 <div className="container">
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 style={{ fontSize: '3rem', color: 'var(--primary-green)' }}>Loved by Our Community</h2>
+                        <span style={{ color: 'var(--accent-gold)', fontWeight: '600', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem' }}>Alhamdulillah</span>
+                        <h2 style={{ fontSize: '2.5rem', color: 'var(--primary-green)', marginTop: '0.5rem' }}>Success Stories</h2>
                     </div>
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
                         {[
-                            { name: "Fatima A.", loc: "Abuja, Nigeria", prod: "Rose of Madinah", text: "The elegance of this fragrance is unmatched. It makes me feel confident and dignified. It lasts all day without being overpowering." },
-                            { name: "Ibrahim & Aisha", loc: "Lagos, Nigeria", prod: "Family Heritage Set", text: "We bought this for our home and the scents are incredible. Our guests always ask what fragrance we use. Truly a premium halal brand." },
-                            { name: "Yusuf M.", loc: "Kano, Nigeria", prod: "Oud Al-Amir", text: "Finally, a luxury oud that rivals international brands but feels authentic to us. The projection is fantastic. Highly recommended." }
+                            { name: "Aisha & Ibrahim", loc: "Married Jan 2023", text: "I was hesitant about online matchmaking, but Halalwedlock's focus on Deen made me comfortable. Ibrahim's profile stood out because of his answers about prayer and family. We involved my father early on, and Alhamdulillah we are now happily married." },
+                            { name: "Fatima & Umar", loc: "Married Nov 2022", text: "The Wali feature is what sold me. It allowed my brother to be part of the conversation from day one. It kept things respectful and focused on marriage rather than casual chatting. May Allah reward the team behind this platform." },
+                            { name: "Zainab & Yusuf", loc: "Married Mar 2024", text: "Finding someone who shares both my cultural background and strict adherence to Islamic values was hard. Halalwedlock's detailed filtering helped me find Zainab. We clicked instantly on our understanding of marriage in Islam." }
                         ].map((review, idx) => (
                             <div key={idx} style={{ 
                                 padding: '2.5rem', 
-                                backgroundColor: 'var(--background-alt)', 
+                                backgroundColor: 'var(--background-cream)', 
                                 borderRadius: '12px',
+                                border: '1px solid rgba(6,78,59,0.1)',
                                 position: 'relative'
                             }}>
                                 <div style={{ display: 'flex', gap: '2px', marginBottom: '1.5rem' }}>
-                                    {[1,2,3,4,5].map(star => <Star key={star} size={18} fill="var(--accent-gold)" color="var(--accent-gold)" />)}
+                                    {[1,2,3,4,5].map(star => <Star key={star} size={16} fill="var(--accent-gold)" color="var(--accent-gold)" />)}
                                 </div>
-                                <p style={{ fontSize: '1.05rem', fontStyle: 'italic', marginBottom: '2rem', lineHeight: '1.7', color: 'var(--text-dark)' }}>
+                                <p style={{ fontSize: '1rem', fontStyle: 'italic', marginBottom: '2rem', lineHeight: '1.7', color: 'var(--text-dark)' }}>
                                     "{review.text}"
                                 </p>
                                 <div>
                                     <h4 style={{ color: 'var(--primary-green)', fontSize: '1.1rem', marginBottom: '0.2rem' }}>{review.name}</h4>
-                                    <div style={{ fontSize: '0.85rem', color: '#666' }}>{review.loc} • Purchased: <span style={{ color: 'var(--accent-gold)' }}>{review.prod}</span></div>
+                                    <div style={{ fontSize: '0.85rem', color: 'var(--accent-gold)' }}>{review.loc}</div>
                                 </div>
                             </div>
                         ))}
                     </div>
+                    
+                    <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+                        <Link to="/success-stories" style={{ color: 'var(--primary-green)', fontWeight: '600', textDecoration: 'none' }}>Read more success stories &rarr;</Link>
+                    </div>
                 </div>
             </section>
+
+            {/* CTA Section */}
+            <section style={{ padding: '6rem 0', backgroundColor: 'var(--primary-green)', color: 'white', textAlign: 'center' }}>
+                <div className="container" style={{ maxWidth: '700px' }}>
+                    <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>Ready to complete half your Deen?</h2>
+                    <p style={{ fontSize: '1.1rem', opacity: 0.9, marginBottom: '2.5rem', lineHeight: '1.6' }}>
+                        Join thousands of single Muslims who are serious about finding their life partner the Halal way. Your journey to a blessed marriage starts here.
+                    </p>
+                    <Link to="/register" style={{ 
+                        display: 'inline-block',
+                        padding: '1.2rem 3rem', 
+                        backgroundColor: 'var(--accent-gold)', 
+                        color: 'var(--primary-green)', 
+                        fontWeight: '700', 
+                        borderRadius: '4px',
+                        textDecoration: 'none',
+                        textTransform: 'uppercase',
+                        letterSpacing: '1px',
+                        fontSize: '1.1rem',
+                        boxShadow: '0 10px 20px rgba(0,0,0,0.15)',
+                        transition: 'transform 0.3s ease'
+                    }}>Join Halalwedlock Today</Link>
+                </div>
+            </section>
+            
+            <style>{`
+                .feature-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+                }
+            `}</style>
         </div>
     );
 };

@@ -1,62 +1,97 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Send } from 'lucide-react';
+import { Heart, Instagram, Twitter, Facebook, Mail, MapPin, Phone } from 'lucide-react';
 
 const Footer = () => {
+    const currentYear = new Date().getFullYear();
+
     return (
-        <footer style={{ backgroundColor: 'var(--primary-green)', color: 'var(--white)', padding: 'var(--spacing-lg) 0 2rem 0' }}>
-            <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem' }}>
-                <div>
-                    <Link to="/" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textDecoration: 'none', marginBottom: '1.5rem' }}>
-                        <h2 style={{ fontSize: '2rem', margin: 0, color: 'var(--white)', letterSpacing: '1px', lineHeight: 1 }}>Hawescent</h2>
-                        <span style={{ fontSize: '0.7rem', color: 'var(--accent-gold)', fontWeight: 500, letterSpacing: '2px', textTransform: 'uppercase' }}>Premium Fragrances</span>
-                    </Link>
-                    <p style={{ opacity: 0.8, fontSize: '0.95rem', lineHeight: '1.8' }}>
-                        Premium scents crafted for Muslim individuals and families who value purity, sophistication and lasting impressions.
-                    </p>
-                    <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem' }}>
-                        <a href="#" style={{ color: 'var(--accent-gold)' }}><Instagram size={20} /></a>
-                        <a href="#" style={{ color: 'var(--accent-gold)' }}><Facebook size={20} /></a>
-                        <a href="#" style={{ color: 'var(--accent-gold)' }}><Twitter size={20} /></a>
+        <footer style={{ backgroundColor: 'var(--primary-green)', color: 'var(--white)', paddingTop: '5rem' }}>
+            <div className="container">
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem', marginBottom: '3rem' }}>
+                    
+                    {/* Brand Info */}
+                    <div>
+                        <Link to="/" style={{ 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            gap: '0.5rem', 
+                            textDecoration: 'none', 
+                            color: 'var(--white)',
+                            marginBottom: '1.5rem'
+                        }}>
+                            <Heart size={24} color="var(--accent-gold)" fill="var(--accent-gold)" />
+                            <span style={{ fontSize: '1.5rem', fontWeight: '700', fontFamily: 'Playfair Display, serif', letterSpacing: '1px' }}>Halalwedlock</span>
+                        </Link>
+                        <p style={{ opacity: 0.8, lineHeight: '1.6', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
+                            The premium, trustworthy Halal matchmaking platform for African Muslims. Find your life partner the Halal way.
+                        </p>
+                        <div style={{ display: 'flex', gap: '1rem' }}>
+                            <a href="#" style={{ color: 'var(--white)', opacity: 0.8, transition: 'opacity 0.2s' }}><Instagram size={20} /></a>
+                            <a href="#" style={{ color: 'var(--white)', opacity: 0.8, transition: 'opacity 0.2s' }}><Twitter size={20} /></a>
+                            <a href="#" style={{ color: 'var(--white)', opacity: 0.8, transition: 'opacity 0.2s' }}><Facebook size={20} /></a>
+                        </div>
                     </div>
+
+                    {/* Quick Links */}
+                    <div>
+                        <h4 style={{ color: 'var(--accent-gold)', marginBottom: '1.5rem', fontSize: '1.1rem', letterSpacing: '1px' }}>Platform</h4>
+                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                            <li><Link to="/how-it-works" style={{ color: 'var(--white)', textDecoration: 'none', opacity: 0.8, fontSize: '0.95rem' }}>How It Works</Link></li>
+                            <li><Link to="/success-stories" style={{ color: 'var(--white)', textDecoration: 'none', opacity: 0.8, fontSize: '0.95rem' }}>Success Stories</Link></li>
+                            <li><Link to="/register" style={{ color: 'var(--white)', textDecoration: 'none', opacity: 0.8, fontSize: '0.95rem' }}>Register Now</Link></li>
+                            <li><Link to="/blog" style={{ color: 'var(--white)', textDecoration: 'none', opacity: 0.8, fontSize: '0.95rem' }}>Islamic Marriage Blog</Link></li>
+                        </ul>
+                    </div>
+
+                    {/* Company */}
+                    <div>
+                        <h4 style={{ color: 'var(--accent-gold)', marginBottom: '1.5rem', fontSize: '1.1rem', letterSpacing: '1px' }}>Company</h4>
+                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                            <li><Link to="/about" style={{ color: 'var(--white)', textDecoration: 'none', opacity: 0.8, fontSize: '0.95rem' }}>About Us</Link></li>
+                            <li><Link to="/contact" style={{ color: 'var(--white)', textDecoration: 'none', opacity: 0.8, fontSize: '0.95rem' }}>Contact Us</Link></li>
+                            <li><Link to="/privacy" style={{ color: 'var(--white)', textDecoration: 'none', opacity: 0.8, fontSize: '0.95rem' }}>Privacy Policy</Link></li>
+                            <li><a href="#" style={{ color: 'var(--white)', textDecoration: 'none', opacity: 0.8, fontSize: '0.95rem' }}>Terms of Service</a></li>
+                        </ul>
+                    </div>
+
+                    {/* Contact Info */}
+                    <div>
+                        <h4 style={{ color: 'var(--accent-gold)', marginBottom: '1.5rem', fontSize: '1.1rem', letterSpacing: '1px' }}>Get in Touch</h4>
+                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                            <li style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start', opacity: 0.8 }}>
+                                <MapPin size={18} style={{ marginTop: '3px', flexShrink: 0 }} />
+                                <span style={{ fontSize: '0.95rem' }}>Abuja, Nigeria</span>
+                            </li>
+                            <li style={{ display: 'flex', gap: '0.8rem', alignItems: 'center', opacity: 0.8 }}>
+                                <Phone size={18} style={{ flexShrink: 0 }} />
+                                <span style={{ fontSize: '0.95rem' }}>+234 (0) 800 000 0000</span>
+                            </li>
+                            <li style={{ display: 'flex', gap: '0.8rem', alignItems: 'center', opacity: 0.8 }}>
+                                <Mail size={18} style={{ flexShrink: 0 }} />
+                                <span style={{ fontSize: '0.95rem' }}>info@halalwedlock.com</span>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
 
-                <div>
-                    <h4 style={{ color: 'var(--white)', marginBottom: '1.5rem', fontSize: '1.2rem', fontWeight: '500' }}>Quick Links</h4>
-                    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                        <li><Link to="/shop" style={{ opacity: 0.8 }}>Shop Collection</Link></li>
-                        <li><Link to="/about" style={{ opacity: 0.8 }}>Our Story</Link></li>
-                        <li><Link to="/blog" style={{ opacity: 0.8 }}>Fragrance Guide</Link></li>
-                        <li><Link to="/contact" style={{ opacity: 0.8 }}>Contact Support</Link></li>
-                    </ul>
+                <div style={{ 
+                    borderTop: '1px solid rgba(255,255,255,0.1)', 
+                    padding: '2rem 0', 
+                    textAlign: 'center',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.5rem',
+                    alignItems: 'center'
+                }}>
+                    <p style={{ opacity: 0.7, fontSize: '0.9rem', margin: 0 }}>
+                        &copy; {currentYear} Halalwedlock (by Hawescent). All rights reserved.
+                    </p>
+                    <p style={{ opacity: 0.5, fontSize: '0.8rem', margin: 0 }}>
+                        Strictly for Halal intentions. We do not support dating or non-Islamic practices.
+                    </p>
                 </div>
-
-                <div>
-                    <h4 style={{ color: 'var(--white)', marginBottom: '1.5rem', fontSize: '1.2rem', fontWeight: '500' }}>Contact Us</h4>
-                    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                        <li style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', opacity: 0.8 }}><Mail size={16} color="var(--accent-gold)" /> hawecents@gmail.com</li>
-                        <li style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', opacity: 0.8 }}><Phone size={16} color="var(--accent-gold)" /> +234 904 965 6467</li>
-                        <li style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', opacity: 0.8 }}><MapPin size={16} color="var(--accent-gold)" /> Oyo, Nigeria</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 style={{ color: 'var(--white)', marginBottom: '1.5rem', fontSize: '1.2rem', fontWeight: '500' }}>Newsletter</h4>
-                    <p style={{ opacity: 0.8, fontSize: '0.9rem', marginBottom: '1rem' }}>Subscribe to receive updates on new collections and exclusive offers.</p>
-                    <form style={{ display: 'flex', gap: '0.5rem' }}>
-                        <input 
-                            type="email" 
-                            placeholder="Your email address" 
-                            style={{ padding: '0.8rem', borderRadius: '4px', border: 'none', width: '100%', outline: 'none' }}
-                        />
-                        <button type="button" style={{ padding: '0.8rem 1rem', backgroundColor: 'var(--accent-gold)', color: 'var(--primary-green)', border: 'none', borderRadius: '4px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <Send size={18} />
-                        </button>
-                    </form>
-                </div>
-            </div>
-            <div className="container" style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.1)', textAlign: 'center', fontSize: '0.85rem', opacity: 0.6 }}>
-                &copy; {new Date().getFullYear()} Hawescent Premium Fragrances. All Rights Reserved.
             </div>
         </footer>
     );
