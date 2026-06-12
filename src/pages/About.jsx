@@ -1,52 +1,71 @@
 import React from 'react';
-import { Heart, Shield, Users } from 'lucide-react';
+import { Heart, Shield, Users, Sparkles } from 'lucide-react';
+import familyImage from '../assets/family.png';
 
 const About = () => {
     return (
         <div className="about-page">
-            <section className="section hero-img img-overlay" style={{
-                backgroundImage: "url('https://images.unsplash.com/photo-1528459199261-2bc450199d70?auto=format&fit=crop&q=80&w=2000')",
-                color: 'white'
+            <section style={{
+                backgroundColor: 'var(--primary-green)',
+                color: 'white',
+                padding: '6rem 0',
+                textAlign: 'center'
             }}>
-                <div className="container" style={{ textAlign: 'center' }}>
-                    <h1 style={{ fontSize: '3rem', marginBottom: '1rem', color: 'white' }}>About Hawecent</h1>
-                    <p style={{ maxWidth: '700px', margin: '0 auto', fontSize: '1.2rem', opacity: 0.9 }}>
-                        Halal Wedlock Centre (Hawecent) is more than a matchmaking site; it's a movement towards restoring the sanctity of the Muslim family unit.
+                <div className="container">
+                    <span style={{ color: 'var(--accent-gold)', fontWeight: '600', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem' }}>Our Story</span>
+                    <h1 style={{ fontSize: '3.5rem', margin: '1rem 0', color: 'white' }}>Crafting Elegance</h1>
+                    <p style={{ maxWidth: '700px', margin: '0 auto', fontSize: '1.2rem', opacity: 0.9, lineHeight: '1.6' }}>
+                        Hawescent is a premium fragrance house dedicated to providing luxurious, halal-certified scents that honor Islamic traditions while embracing modern sophistication.
                     </p>
                 </div>
             </section>
 
-            <section className="section" style={{ backgroundColor: 'white' }}>
+            <section style={{ backgroundColor: 'var(--background-cream)', padding: '6rem 0' }}>
                 <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
                     <div>
-                        <h2 style={{ marginBottom: '1.5rem' }}>Our Mission</h2>
+                        <h2 style={{ marginBottom: '1.5rem', fontSize: '2.5rem', color: 'var(--primary-green)' }}>Our Mission</h2>
                         <img
-                            src="https://images.unsplash.com/photo-1584281729221-3965673d3301?auto=format&fit=crop&q=80&w=1000"
-                            alt="Islamic study and guidance"
-                            className="content-img"
-                            style={{ marginBottom: '2rem' }}
+                            src={familyImage}
+                            alt="Premium Islamic lifestyle"
+                            style={{ width: '100%', height: '350px', objectFit: 'cover', borderRadius: '12px', marginBottom: '2rem', boxShadow: 'var(--shadow-md)' }}
                         />
-                        <p style={{ marginBottom: '1rem' }}>
-                            In an age where modern dating culture often conflicts with Islamic values, Hawecent provides a sanctuary for Muslims to find their lifelong partners through a process that is dignified, modest, and strictly compliant with the Shariah.
+                        <p style={{ marginBottom: '1rem', color: 'var(--text-dark)', lineHeight: '1.7', fontSize: '1.05rem' }}>
+                            Our mission is to provide premium fragrances that align with Islamic values while helping Muslims express confidence, dignity, and excellence. We believe that smelling good is a Sunnah that should be accessible in its most premium form.
                         </p>
-                        <p>
-                            We aim to reduce the prevalence of adultery and fornication by facilitating early and piously guided marriages, while also providing the tools necessary for long-term marital success.
+                        <p style={{ color: 'var(--text-dark)', lineHeight: '1.7', fontSize: '1.05rem' }}>
+                            Every bottle of Hawescent is meticulously crafted using the finest ethically sourced ingredients, ensuring purity (Taharah) without compromising on longevity or projection.
                         </p>
                     </div>
-                    <div style={{ backgroundColor: 'var(--background-cream)', padding: '3rem', borderRadius: '20px', border: '1px solid var(--accent-gold)' }}>
-                        <h3 style={{ marginBottom: '1rem', color: 'var(--primary-green)' }}>Our Core Values</h3>
-                        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                            <li style={{ display: 'flex', gap: '1rem' }}>
-                                <Heart color="var(--accent-gold)" fill="var(--accent-gold)" size={20} />
-                                <span><strong>Sincerity (Ikhlas):</strong> Every match is approached with the intention of pleasing Allah.</span>
+                    
+                    <div style={{ backgroundColor: 'var(--white)', padding: '3rem', borderRadius: '20px', border: '1px solid #eaeaea', boxShadow: 'var(--shadow-md)' }}>
+                        <h3 style={{ marginBottom: '2rem', color: 'var(--primary-green)', fontSize: '2rem' }}>The Hawescent Standard</h3>
+                        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                            <li style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                                <div style={{ backgroundColor: 'var(--background-cream)', padding: '1rem', borderRadius: '50%' }}>
+                                    <Sparkles color="var(--accent-gold)" size={24} />
+                                </div>
+                                <div>
+                                    <h4 style={{ color: 'var(--text-dark)', fontSize: '1.2rem', marginBottom: '0.3rem' }}>Excellence (Ihsan)</h4>
+                                    <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: '1.5' }}>We craft the highest quality fragrances with attention to every single detail.</p>
+                                </div>
                             </li>
-                            <li style={{ display: 'flex', gap: '1rem' }}>
-                                <Shield color="var(--accent-gold)" fill="var(--accent-gold)" size={20} />
-                                <span><strong>Modesty (Haya):</strong> We guard the privacy and dignity of our brothers and sisters.</span>
+                            <li style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                                <div style={{ backgroundColor: 'var(--background-cream)', padding: '1rem', borderRadius: '50%' }}>
+                                    <Shield color="var(--accent-gold)" size={24} />
+                                </div>
+                                <div>
+                                    <h4 style={{ color: 'var(--text-dark)', fontSize: '1.2rem', marginBottom: '0.3rem' }}>Trustworthiness (Amanah)</h4>
+                                    <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: '1.5' }}>Transparent ingredient sourcing and 100% alcohol-free options for the conscious buyer.</p>
+                                </div>
                             </li>
-                            <li style={{ display: 'flex', gap: '1rem' }}>
-                                <Users color="var(--accent-gold)" fill="var(--accent-gold)" size={20} />
-                                <span><strong>Community (Ummah):</strong> We believe strong families are the foundation of a strong Ummah.</span>
+                            <li style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                                <div style={{ backgroundColor: 'var(--background-cream)', padding: '1rem', borderRadius: '50%' }}>
+                                    <Users color="var(--accent-gold)" size={24} />
+                                </div>
+                                <div>
+                                    <h4 style={{ color: 'var(--text-dark)', fontSize: '1.2rem', marginBottom: '0.3rem' }}>Family (Usrah)</h4>
+                                    <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: '1.5' }}>Creating memorable scents that become part of beautiful family traditions and Eid celebrations.</p>
+                                </div>
                             </li>
                         </ul>
                     </div>

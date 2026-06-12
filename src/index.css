@@ -1,12 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
 
 :root {
-  /* Color Tokens */
-  --primary-green: #1B4332;
-  --secondary-green: #2D6A4F;
-  --accent-gold: #D4AF37;
-  --background-cream: #F8F4E3;
-  --text-dark: #1F2937;
+  /* Premium Fragrance Color Tokens */
+  --primary-green: #064E3B; /* Deep Emerald */
+  --secondary-green: #022C22; /* Darker Emerald */
+  --accent-gold: #D4AF37; /* Luxury Gold */
+  --background-cream: #FFFFF0; /* Ivory */
+  --background-alt: #FAFAFA; /* Soft White */
+  --text-dark: #1C1C1E; /* Charcoal Black */
   --text-light: #F9FAFB;
   --white: #FFFFFF;
   --error: #EF4444;
@@ -31,7 +32,7 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', sans-serif;
   background-color: var(--background-cream);
   color: var(--text-dark);
   line-height: 1.6;

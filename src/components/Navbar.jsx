@@ -1,23 +1,61 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Heart, Menu, X } from 'lucide-react';
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, ShoppingBag } from 'lucide-react';
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = React.useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation();
+
+    const isActive = (path) => location.pathname === path;
+
+    const navItems = [
+        { name: 'Home', path: '/' },
+        { name: 'Shop', path: '/shop' },
+        { name: 'Collections', path: '/collections' },
+        { name: 'About Us', path: '/about' },
+        { name: 'Testimonials', path: '/testimonials' },
+        { name: 'Blog', path: '/blog' },
+        { name: 'Contact', path: '/contact' }
+    ];
 
     return (
-        <nav style={{ backgroundColor: 'var(--white)', borderBottom: '1px solid #e5e7eb', position: 'sticky', top: 0, zIndex: 1000 }}>
-            <div className="container nav-container">
-                <Link to="/" className="nav-logo" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <img src="/src/assets/logo.png" alt="Hawecent Logo" style={{ height: '60px', width: 'auto' }} />
+        <nav style={{ 
+            backgroundColor: 'var(--white)', 
+            borderBottom: '1px solid #eaeaea', 
+            position: 'sticky', 
+            top: 0, 
+            zIndex: 1000,
+            boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
+        }}>
+            <div className="container nav-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '90px' }}>
+                <Link to="/" className="nav-logo" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textDecoration: 'none' }}>
+                    <h1 style={{ fontSize: '2.2rem', margin: 0, color: 'var(--primary-green)', letterSpacing: '1px', lineHeight: 1 }}>Hawescent</h1>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', fontWeight: 500, letterSpacing: '2px', textTransform: 'uppercase' }}>Premium Fragrances</span>
                 </Link>
 
-                <div className="nav-links">
-                    <Link to="/about">About</Link>
-                    <Link to="/how-it-works">How it Works</Link>
-                    <Link to="/guidance">Guidance</Link>
-                    <Link to="/register/male" className="btn btn-primary" style={{ padding: '0.4rem 0.8rem', fontSize: '0.9rem' }}>Male Register</Link>
-                    <Link to="/register/female" className="btn btn-accent" style={{ padding: '0.4rem 0.8rem', fontSize: '0.9rem' }}>Female Register</Link>
+                {/* Desktop Nav */}
+                <div className="nav-links" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+                    {navItems.map((item) => (
+                        <Link 
+                            key={item.name} 
+                            to={item.path}
+                            style={{ 
+                                fontWeight: isActive(item.path) ? '600' : '400',
+                                color: isActive(item.path) ? 'var(--primary-green)' : 'var(--text-dark)',
+                                borderBottom: isActive(item.path) ? '2px solid var(--accent-gold)' : '2px solid transparent',
+                                paddingBottom: '4px',
+                                textTransform: 'uppercase',
+                                fontSize: '0.9rem',
+                                letterSpacing: '0.5px'
+                            }}
+                        >
+                            {item.name}
+                        </Link>
+                    ))}
+                    
+                    <button style={{ background: 'none', border: 'none', marginLeft: '1rem', color: 'var(--primary-green)' }}>
+                        <ShoppingBag size={24} />
+                    </button>
                 </div>
             </div>
         </nav>
