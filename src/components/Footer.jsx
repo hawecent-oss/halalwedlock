@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, Instagram, Twitter, Facebook, Mail, MapPin, Phone } from 'lucide-react';
+import logoImage from '../assets/logo.png';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -15,13 +16,9 @@ const Footer = () => {
                         <Link to="/" style={{ 
                             display: 'flex', 
                             alignItems: 'center', 
-                            gap: '0.5rem', 
-                            textDecoration: 'none', 
-                            color: 'var(--white)',
                             marginBottom: '1.5rem'
                         }}>
-                            <Heart size={24} color="var(--accent-gold)" fill="var(--accent-gold)" />
-                            <span style={{ fontSize: '1.5rem', fontWeight: '700', fontFamily: 'Playfair Display, serif', letterSpacing: '1px' }}>Halalwedlock</span>
+                            <img src={logoImage} alt="HalalWedlock Logo" style={{ height: '60px', width: 'auto' }} />
                         </Link>
                         <p style={{ opacity: 0.8, lineHeight: '1.6', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
                             The premium, trustworthy Halal matchmaking platform for African Muslims. Find your life partner the Halal way.

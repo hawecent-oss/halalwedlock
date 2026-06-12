@@ -59,7 +59,7 @@ const Home = () => {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    background: 'linear-gradient(to right, rgba(6,78,59,0.6) 0%, rgba(6,78,59,0.15) 100%)',
+                    background: 'linear-gradient(to right, rgba(6,78,59,0.3) 0%, rgba(6,78,59,0.05) 100%)',
                     zIndex: 2
                 }}></div>
                 
