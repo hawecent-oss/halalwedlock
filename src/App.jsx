@@ -10,6 +10,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import HowItWorks from './pages/HowItWorks';
 import Register from './pages/Register';
 import AdminDashboard from './pages/admin/AdminDashboard';
+import SeekerDashboard from './pages/dashboard/SeekerDashboard';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           {/* Admin Routes - No layout (Navbar/Footer) wrapper */}
           <Route path="/superadmin/*" element={<AdminDashboard />} />
+          <Route path="/dashboard/*" element={<SeekerDashboard />} />
           
           {/* Public Routes with Layout */}
           <Route path="*" element={
