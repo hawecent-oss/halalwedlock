@@ -6,8 +6,10 @@ import FloatingWhatsApp from '../components/FloatingWhatsApp';
 import heroImage from '../assets/hero_couple.png';
 import familyImage from '../assets/family.png';
 import weddingImage from '../assets/wedding.png';
+import niqabImage from '../assets/niqab_woman.png';
+import ustadhImage from '../assets/ustadh_man.png';
 
-const carouselImages = [heroImage, familyImage, weddingImage];
+const carouselImages = [heroImage, niqabImage, ustadhImage, familyImage, weddingImage];
 
 const Home = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -57,7 +59,7 @@ const Home = () => {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    background: 'linear-gradient(to right, rgba(6,78,59,0.85) 0%, rgba(6,78,59,0.3) 100%)',
+                    background: 'linear-gradient(to right, rgba(6,78,59,0.6) 0%, rgba(6,78,59,0.15) 100%)',
                     zIndex: 2
                 }}></div>
                 
