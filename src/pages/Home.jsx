@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Heart, Users, Star, CheckCircle, Lock } from 'lucide-react';
 import FloatingWhatsApp from '../components/FloatingWhatsApp';
@@ -7,7 +7,17 @@ import heroImage from '../assets/hero_couple.png';
 import familyImage from '../assets/family.png';
 import weddingImage from '../assets/wedding.png';
 
+const carouselImages = [heroImage, familyImage, weddingImage];
+
 const Home = () => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+        }, 5000); // Change image every 5 seconds
+        return () => clearInterval(interval);
+    }, []);
     return (
         <div className="home-page" style={{ backgroundColor: 'var(--background-cream)' }}>
             <FloatingWhatsApp />
@@ -22,25 +32,33 @@ const Home = () => {
                 backgroundColor: 'var(--primary-green)',
                 overflow: 'hidden'
             }}>
+                {/* Carousel Backgrounds */}
+                {carouselImages.map((img, index) => (
+                    <div key={index} style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        backgroundImage: `url(${img})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        opacity: index === currentImageIndex ? 0.7 : 0,
+                        transition: 'opacity 1.5s ease-in-out',
+                        mixBlendMode: 'overlay',
+                        zIndex: 1
+                    }}></div>
+                ))}
+                
+                {/* Transparent Gradient Overlay */}
                 <div style={{
                     position: 'absolute',
                     top: 0,
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    backgroundImage: `url(${heroImage})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    opacity: 0.4,
-                    mixBlendMode: 'overlay'
-                }}></div>
-                <div style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    background: 'linear-gradient(to right, rgba(6,78,59,0.95) 0%, rgba(6,78,59,0.6) 100%)'
+                    background: 'linear-gradient(to right, rgba(6,78,59,0.85) 0%, rgba(6,78,59,0.3) 100%)',
+                    zIndex: 2
                 }}></div>
                 
                 <div className="container" style={{ position: 'relative', zIndex: 10, color: 'var(--white)', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', maxWidth: '800px' }}>
