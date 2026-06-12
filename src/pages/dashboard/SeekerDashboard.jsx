@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../../lib/supabase';
-import { User, ShieldCheck, Heart, AlertCircle, FileText, Camera, Smartphone, Mail, LogOut } from 'lucide-react';
+import { User, ShieldCheck, Heart, AlertCircle, FileText, Camera, Smartphone, Mail, LogOut, BookOpen } from 'lucide-react';
 import MatchingEngine from './MatchingEngine';
+import CounselingModule from './CounselingModule';
 
 const SeekerDashboard = () => {
     const [profile, setProfile] = useState(null);
@@ -83,6 +84,7 @@ const SeekerDashboard = () => {
                         { id: 'overview', label: 'Overview', icon: <User size={20} /> },
                         { id: 'matches', label: 'My Matches', icon: <Heart size={20} /> },
                         { id: 'verification', label: 'Trust & Verification', icon: <ShieldCheck size={20} /> },
+                        { id: 'counseling', label: 'Counseling & Guidance', icon: <BookOpen size={20} /> },
                     ].map(tab => (
                         <button 
                             key={tab.id}
@@ -127,11 +129,13 @@ const SeekerDashboard = () => {
                         {activeTab === 'overview' && `Assalamu Alaikum, ${profile.full_name.split(' ')[0]}`}
                         {activeTab === 'matches' && 'Smart Match Recommendations'}
                         {activeTab === 'verification' && 'Trust & Verification Hub'}
+                        {activeTab === 'counseling' && 'Islamic Guidance & Counseling'}
                     </h1>
                     <p style={{ color: '#6B7280' }}>
                         {activeTab === 'overview' && 'Welcome to your HalalWedlock dashboard. Let\'s complete your journey.'}
                         {activeTab === 'matches' && 'Profiles carefully selected based on your Deen, location, and values.'}
                         {activeTab === 'verification' && 'Verify your identity to increase your chances of finding a serious match.'}
+                        {activeTab === 'counseling' && 'Book virtual sessions with certified Ustadhas and expert marriage counselors.'}
                     </p>
                 </header>
 
@@ -210,6 +214,10 @@ const SeekerDashboard = () => {
                         <p style={{ color: '#6B7280', maxWidth: '500px', margin: '0 auto 2rem auto' }}>Verified profiles get 3x more matches. Upload a valid government ID to get the green checkmark.</p>
                         <button onClick={() => handleVerificationStep('ID Upload')} style={{ padding: '1rem 2rem', backgroundColor: '#064E3B', color: 'white', border: 'none', borderRadius: '6px', fontWeight: '600', cursor: 'pointer' }}>Upload Government ID</button>
                     </div>
+                )}
+
+                {activeTab === 'counseling' && (
+                    <CounselingModule currentProfile={profile} />
                 )}
             </div>
         </div>
