@@ -15,5 +15,10 @@ export const supabase = (supabaseUrl && supabaseAnonKey && !supabaseUrl.includes
             select: () => ({ eq: () => ({ order: () => Promise.resolve({ data: [], error: null }) }), insert: () => Promise.resolve({ data: [], error: null }) }),
             update: () => ({ eq: () => Promise.resolve({ error: null }) }),
             insert: () => Promise.resolve({ data: [], error: null })
-        })
+        }),
+        auth: {
+            getSession: () => Promise.resolve({ data: { session: null } }),
+            onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } }),
+            signOut: () => Promise.resolve({ error: null })
+        }
     };
