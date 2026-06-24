@@ -218,7 +218,7 @@ const Register = () => {
                         </div>
                     ))}
                 </div>
-                <a href="mailto:info@halalwedlock.com" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '1rem 2.5rem', background: 'linear-gradient(135deg, #064E3B, #047857)', color: 'white', border: 'none', borderRadius: '30px', fontWeight: '700', textDecoration: 'none' }}>
+                <a href="mailto:hawecent@gmail.com" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '1rem 2.5rem', background: 'linear-gradient(135deg, #064E3B, #047857)', color: 'white', border: 'none', borderRadius: '30px', fontWeight: '700', textDecoration: 'none' }}>
                     <Mail size={18} /> Request Early Access <ArrowRight size={18} />
                 </a>
             </div>

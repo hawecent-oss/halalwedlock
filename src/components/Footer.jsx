@@ -58,15 +58,15 @@ const Footer = () => {
                         <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                             <li style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start', opacity: 0.8 }}>
                                 <MapPin size={18} style={{ marginTop: '3px', flexShrink: 0 }} />
-                                <span style={{ fontSize: '0.95rem' }}>Abuja, Nigeria</span>
+                                <span style={{ fontSize: '0.95rem' }}>NO. 13, YIDI AGUNPOPO AREA, OYO</span>
                             </li>
                             <li style={{ display: 'flex', gap: '0.8rem', alignItems: 'center', opacity: 0.8 }}>
                                 <Phone size={18} style={{ flexShrink: 0 }} />
-                                <span style={{ fontSize: '0.95rem' }}>+234 (0) 800 000 0000</span>
+                                <span style={{ fontSize: '0.95rem' }}>09049656467</span>
                             </li>
                             <li style={{ display: 'flex', gap: '0.8rem', alignItems: 'center', opacity: 0.8 }}>
                                 <Mail size={18} style={{ flexShrink: 0 }} />
-                                <span style={{ fontSize: '0.95rem' }}>info@halalwedlock.com</span>
+                                <span style={{ fontSize: '0.95rem' }}>hawecent@gmail.com</span>
                             </li>
                         </ul>
                     </div>

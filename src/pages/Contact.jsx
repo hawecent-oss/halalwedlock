@@ -50,7 +50,7 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h4 style={{ color: 'var(--primary-green)', fontSize: '1.2rem', marginBottom: '0.3rem' }}>Office Location</h4>
-                                    <p style={{ color: '#666', lineHeight: '1.5' }}>Wuse Zone 2<br/>Abuja, Nigeria</p>
+                                    <p style={{ color: '#666', lineHeight: '1.5' }}>NO. 13, YIDI AGUNPOPO AREA<br/>OYO</p>
                                 </div>
                             </div>
                             
@@ -60,7 +60,7 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h4 style={{ color: 'var(--primary-green)', fontSize: '1.2rem', marginBottom: '0.3rem' }}>Phone / WhatsApp</h4>
-                                    <p style={{ color: '#666', lineHeight: '1.5' }}>+234 (0) 800 000 0000</p>
+                                    <p style={{ color: '#666', lineHeight: '1.5' }}>09049656467</p>
                                 </div>
                             </div>
                             
@@ -70,7 +70,7 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h4 style={{ color: 'var(--primary-green)', fontSize: '1.2rem', marginBottom: '0.3rem' }}>Email Address</h4>
-                                    <p style={{ color: '#666', lineHeight: '1.5' }}>support@halalwedlock.com<br/>info@halalwedlock.com</p>
+                                    <p style={{ color: '#666', lineHeight: '1.5' }}>hawecent@gmail.com</p>
                                 </div>
                             </div>
                         </div>
