@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { Heart, Mail, Lock, User, ArrowRight, CheckCircle, Shield, Users } from 'lucide-react';
-import { Auth } from '@supabase/auth-ui-react';
-import { ThemeSupa } from '@supabase/auth-ui-shared';
 
 const Register = () => {
     const [session, setSession] = useState(null);
     const [loading, setLoading] = useState(true);
+    
+    // Custom Form State
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [isSignUp, setIsSignUp] = useState(false);
+    const [authLoading, setAuthLoading] = useState(false);
+    const [message, setMessage] = useState({ type: '', text: '' });
 
     useEffect(() => {
         supabase.auth.getSession().then(({ data: { session } }) => {
@@ -22,6 +27,33 @@ const Register = () => {
 
         return () => subscription.unsubscribe();
     }, []);
+
+    const handleAuth = async (e) => {
+        e.preventDefault();
+        setAuthLoading(true);
+        setMessage({ type: '', text: '' });
+
+        try {
+            if (isSignUp) {
+                const { error } = await supabase.auth.signUp({
+                    email,
+                    password,
+                });
+                if (error) throw error;
+                setMessage({ type: 'success', text: 'Registration successful! Please check your email to verify your account.' });
+            } else {
+                const { error } = await supabase.auth.signInWithPassword({
+                    email,
+                    password,
+                });
+                if (error) throw error;
+            }
+        } catch (error) {
+            setMessage({ type: 'error', text: error.message });
+        } finally {
+            setAuthLoading(false);
+        }
+    };
 
     // If still loading session
     if (loading) {
@@ -63,129 +95,113 @@ const Register = () => {
         );
     }
 
-    // If Supabase is configured, show Auth UI
+    // If Supabase is configured, show Custom Auth Form
     if (isSupabaseConfigured) {
         return (
             <div style={{ padding: '6rem 0', backgroundColor: 'var(--background-cream)', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <div style={{ backgroundColor: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', width: '100%', maxWidth: '500px' }}>
+                <div style={{ backgroundColor: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', width: '100%', maxWidth: '450px' }}>
                     <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-                        <h2 style={{ color: 'var(--primary-green)', fontSize: '2rem', marginBottom: '0.5rem' }}>Create Account</h2>
+                        <h2 style={{ color: 'var(--primary-green)', fontSize: '2rem', marginBottom: '0.5rem' }}>
+                            {isSignUp ? 'Create Account' : 'Welcome Back'}
+                        </h2>
                         <p style={{ color: '#666', fontSize: '1rem' }}>Bismillah. Start your journey below.</p>
                     </div>
-                    <Auth 
-                        supabaseClient={supabase} 
-                        appearance={{ 
-                            theme: ThemeSupa,
-                            variables: {
-                                default: {
-                                    colors: {
-                                        brand: '#064E3B',
-                                        brandAccent: '#047857',
-                                    }
-                                }
-                            }
-                        }} 
-                        providers={[]} 
-                        theme="light"
-                    />
+
+                    {message.text && (
+                        <div style={{ 
+                            padding: '1rem', 
+                            marginBottom: '1.5rem', 
+                            borderRadius: '8px', 
+                            backgroundColor: message.type === 'error' ? '#FEE2E2' : '#D1FAE5',
+                            color: message.type === 'error' ? '#B91C1C' : '#065F46',
+                            fontSize: '0.9rem',
+                            textAlign: 'center'
+                        }}>
+                            {message.text}
+                        </div>
+                    )}
+
+                    <form onSubmit={handleAuth} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                        <div>
+                            <label style={{ display: 'block', marginBottom: '0.5rem', color: '#444', fontWeight: '500' }}>Email Address</label>
+                            <input 
+                                type="email" 
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                                placeholder="Enter your email"
+                                style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid #ddd', fontSize: '1rem' }}
+                            />
+                        </div>
+                        <div>
+                            <label style={{ display: 'block', marginBottom: '0.5rem', color: '#444', fontWeight: '500' }}>Password</label>
+                            <input 
+                                type="password" 
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                                placeholder="Enter your password"
+                                style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid #ddd', fontSize: '1rem' }}
+                            />
+                        </div>
+                        
+                        <button 
+                            type="submit" 
+                            disabled={authLoading}
+                            style={{ 
+                                width: '100%', 
+                                padding: '1rem', 
+                                backgroundColor: 'var(--primary-green)', 
+                                color: 'white', 
+                                border: 'none', 
+                                borderRadius: '8px', 
+                                fontSize: '1.1rem', 
+                                fontWeight: '600',
+                                cursor: authLoading ? 'not-allowed' : 'pointer',
+                                opacity: authLoading ? 0.7 : 1,
+                                marginTop: '0.5rem'
+                            }}
+                        >
+                            {authLoading ? 'Please wait...' : (isSignUp ? 'Sign Up' : 'Log In')}
+                        </button>
+                    </form>
+
+                    <div style={{ textAlign: 'center', marginTop: '2rem', paddingTop: '1.5rem', borderTop: '1px solid #eee' }}>
+                        <p style={{ color: '#666', fontSize: '0.9rem' }}>
+                            {isSignUp ? 'Already have an account?' : "Don't have an account?"}
+                            <button 
+                                onClick={() => setIsSignUp(!isSignUp)}
+                                style={{ background: 'none', border: 'none', color: 'var(--primary-green)', fontWeight: '600', marginLeft: '0.5rem', cursor: 'pointer', textDecoration: 'underline' }}
+                            >
+                                {isSignUp ? 'Log In' : 'Sign Up'}
+                            </button>
+                        </p>
+                    </div>
                 </div>
             </div>
         );
     }
 
-    // Fallback: Supabase not configured — show a beautiful coming soon page
+    // Fallback: Supabase not configured
     return (
-        <div style={{ 
-            padding: '6rem 1rem', 
-            backgroundColor: 'var(--background-cream)', 
-            minHeight: '80vh', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center' 
-        }}>
-            <div style={{ 
-                backgroundColor: 'white', 
-                padding: '3rem', 
-                borderRadius: '16px', 
-                boxShadow: '0 20px 60px rgba(6,78,59,0.1)', 
-                width: '100%', 
-                maxWidth: '550px',
-                textAlign: 'center'
-            }}>
-                {/* Header */}
-                <div style={{ 
-                    width: '80px', height: '80px', 
-                    background: 'linear-gradient(135deg, #064E3B, #047857)', 
-                    borderRadius: '50%', 
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', 
-                    margin: '0 auto 1.5rem auto',
-                    boxShadow: '0 8px 25px rgba(6,78,59,0.3)'
-                }}>
+        <div style={{ padding: '6rem 1rem', backgroundColor: 'var(--background-cream)', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ backgroundColor: 'white', padding: '3rem', borderRadius: '16px', boxShadow: '0 20px 60px rgba(6,78,59,0.1)', width: '100%', maxWidth: '550px', textAlign: 'center' }}>
+                <div style={{ width: '80px', height: '80px', background: 'linear-gradient(135deg, #064E3B, #047857)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem auto' }}>
                     <Heart size={36} color="white" fill="white" />
                 </div>
-                
-                <h2 style={{ 
-                    color: 'var(--primary-green)', 
-                    fontSize: '2rem', 
-                    marginBottom: '0.5rem',
-                    fontFamily: 'Playfair Display, serif'
-                }}>
-                    Begin Your Journey
-                </h2>
-                <p style={{ color: '#888', fontSize: '1rem', marginBottom: '2.5rem' }}>
-                    Bismillah. Registration is opening very soon, In Shaa Allah.
-                </p>
-
-                {/* Features List */}
+                <h2 style={{ color: 'var(--primary-green)', fontSize: '2rem', marginBottom: '0.5rem', fontFamily: 'Playfair Display, serif' }}>Begin Your Journey</h2>
+                <p style={{ color: '#888', fontSize: '1rem', marginBottom: '2.5rem' }}>Bismillah. Registration is opening very soon, In Shaa Allah.</p>
                 <div style={{ textAlign: 'left', marginBottom: '2.5rem' }}>
-                    {[
-                        { icon: <Shield size={20} />, text: 'Verified Muslim profiles only' },
-                        { icon: <Users size={20} />, text: 'Wali/Guardian involvement built-in' },
-                        { icon: <Heart size={20} />, text: 'AI-powered halal matchmaking' },
-                    ].map((item, i) => (
-                        <div key={i} style={{ 
-                            display: 'flex', 
-                            alignItems: 'center', 
-                            gap: '1rem', 
-                            padding: '0.8rem 1rem',
-                            marginBottom: '0.5rem',
-                            backgroundColor: 'rgba(6,78,59,0.04)',
-                            borderRadius: '8px'
-                        }}>
+                    {[{ icon: <Shield size={20} />, text: 'Verified Muslim profiles only' }, { icon: <Users size={20} />, text: 'Wali/Guardian involvement built-in' }, { icon: <Heart size={20} />, text: 'AI-powered halal matchmaking' }].map((item, i) => (
+                        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '0.8rem 1rem', marginBottom: '0.5rem', backgroundColor: 'rgba(6,78,59,0.04)', borderRadius: '8px' }}>
                             <div style={{ color: 'var(--primary-green)', flexShrink: 0 }}>{item.icon}</div>
                             <span style={{ color: '#555', fontSize: '0.95rem' }}>{item.text}</span>
                         </div>
                     ))}
                 </div>
-
-                {/* CTA */}
-                <a 
-                    href="mailto:info@halalwedlock.com?subject=Early Access Request&body=Assalamu Alaikum, I would like to join HalalWedlock early access."
-                    style={{ 
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '0.5rem',
-                        padding: '1rem 2.5rem', 
-                        background: 'linear-gradient(135deg, #064E3B, #047857)', 
-                        color: 'white', 
-                        border: 'none', 
-                        borderRadius: '30px', 
-                        cursor: 'pointer', 
-                        fontWeight: '700',
-                        fontSize: '1rem',
-                        textDecoration: 'none',
-                        boxShadow: '0 6px 20px rgba(6,78,59,0.3)',
-                        transition: 'all 0.3s ease'
-                    }}
-                >
-                    <Mail size={18} />
-                    Request Early Access
-                    <ArrowRight size={18} />
+                <a href="mailto:info@halalwedlock.com" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '1rem 2.5rem', background: 'linear-gradient(135deg, #064E3B, #047857)', color: 'white', border: 'none', borderRadius: '30px', fontWeight: '700', textDecoration: 'none' }}>
+                    <Mail size={18} /> Request Early Access <ArrowRight size={18} />
                 </a>
-                
-                <p style={{ color: '#aaa', fontSize: '0.85rem', marginTop: '1.5rem' }}>
-                    We will notify you as soon as registration opens, In Shaa Allah.
-                </p>
             </div>
         </div>
     );
