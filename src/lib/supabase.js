@@ -1,13 +1,10 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+// Hardcoded credentials to bypass Vercel Environment Variable issues
+const supabaseUrl = 'https://vvjqvjvbmzsnvrvlsibh.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ2anF2anZibXpzbnZydmxzaWJoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyNTAwMTcsImV4cCI6MjA5NjgyNjAxN30.uEn_EAH28uHzdW6Pn0xIxZ09x3UO9MO9Q4z5hsYMhFA';
 
-// Refined defensive check: prevent crash if ENV is missing
-if (!supabaseUrl || !supabaseAnonKey || supabaseUrl.includes('your_supabase')) {
-    console.warn('Supabase credentials missing or invalid. Check your .env file.')
-}
-export const isSupabaseConfigured = !!(supabaseUrl && supabaseAnonKey && !supabaseUrl.includes('your_supabase'));
+export const isSupabaseConfigured = true;
 
 export const supabase = isSupabaseConfigured
     ? createClient(supabaseUrl, supabaseAnonKey)
