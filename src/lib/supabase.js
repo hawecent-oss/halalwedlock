@@ -7,8 +7,9 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 if (!supabaseUrl || !supabaseAnonKey || supabaseUrl.includes('your_supabase')) {
     console.warn('Supabase credentials missing or invalid. Check your .env file.')
 }
+export const isSupabaseConfigured = !!(supabaseUrl && supabaseAnonKey && !supabaseUrl.includes('your_supabase'));
 
-export const supabase = (supabaseUrl && supabaseAnonKey && !supabaseUrl.includes('your_supabase'))
+export const supabase = isSupabaseConfigured
     ? createClient(supabaseUrl, supabaseAnonKey)
     : {
         from: () => ({
