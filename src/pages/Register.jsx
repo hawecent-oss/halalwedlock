@@ -49,7 +49,13 @@ const Register = () => {
                 if (error) throw error;
             }
         } catch (error) {
-            setMessage({ type: 'error', text: error.message });
+            console.error("Auth Error:", error);
+            // Append the Supabase URL it's trying to hit so we can see if it's malformed
+            const urlUsed = import.meta.env.VITE_SUPABASE_URL;
+            setMessage({ 
+                type: 'error', 
+                text: `${error.message} (Tried to connect to: ${urlUsed})` 
+            });
         } finally {
             setAuthLoading(false);
         }
