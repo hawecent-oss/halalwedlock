@@ -1,23 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { Heart, Mail, Lock, User, ArrowRight, CheckCircle, Shield, Users } from 'lucide-react';
-
-// Dynamic imports moved inside the component to prevent top-level await crashes
+import { Auth } from '@supabase/auth-ui-react';
+import { ThemeSupa } from '@supabase/auth-ui-shared';
 
 const Register = () => {
     const [session, setSession] = useState(null);
-    const [AuthComponent, setAuthComponent] = useState(null);
-    const [Theme, setTheme] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Load Auth UI dynamically to prevent top-level await crashes
-        if (isSupabaseConfigured) {
-            import('@supabase/auth-ui-react').then(mod => setAuthComponent(() => mod.Auth)).catch(console.warn);
-            import('@supabase/auth-ui-shared').then(mod => setTheme(() => mod.ThemeSupa)).catch(console.warn);
-        }
-
         supabase.auth.getSession().then(({ data: { session } }) => {
             setSession(session);
+            setLoading(false);
         });
 
         const {
@@ -28,6 +22,15 @@ const Register = () => {
 
         return () => subscription.unsubscribe();
     }, []);
+
+    // If still loading session
+    if (loading) {
+        return (
+            <div style={{ padding: '8rem 0', backgroundColor: 'var(--background-cream)', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ color: 'var(--primary-green)' }}>Loading...</div>
+            </div>
+        );
+    }
 
     // If user is logged in
     if (session) {
@@ -61,7 +64,7 @@ const Register = () => {
     }
 
     // If Supabase is configured, show Auth UI
-    if (isSupabaseConfigured && AuthComponent && Theme) {
+    if (isSupabaseConfigured) {
         return (
             <div style={{ padding: '6rem 0', backgroundColor: 'var(--background-cream)', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div style={{ backgroundColor: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', width: '100%', maxWidth: '500px' }}>
@@ -69,10 +72,10 @@ const Register = () => {
                         <h2 style={{ color: 'var(--primary-green)', fontSize: '2rem', marginBottom: '0.5rem' }}>Create Account</h2>
                         <p style={{ color: '#666', fontSize: '1rem' }}>Bismillah. Start your journey below.</p>
                     </div>
-                    <AuthComponent 
+                    <Auth 
                         supabaseClient={supabase} 
                         appearance={{ 
-                            theme: Theme,
+                            theme: ThemeSupa,
                             variables: {
                                 default: {
                                     colors: {
