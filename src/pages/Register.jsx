@@ -4,6 +4,7 @@ import { Heart, Mail, Lock, User, ArrowRight, CheckCircle, Shield, Users } from 
 
 const Register = () => {
     const [session, setSession] = useState(null);
+    const [userRole, setUserRole] = useState('user');
     const [loading, setLoading] = useState(true);
     
     // Custom Form State
@@ -14,8 +15,14 @@ const Register = () => {
     const [message, setMessage] = useState({ type: '', text: '' });
 
     useEffect(() => {
+        const fetchRole = async (userId) => {
+            const { data } = await supabase.from('profiles').select('role').eq('id', userId).single();
+            if (data && data.role) setUserRole(data.role);
+        };
+
         supabase.auth.getSession().then(({ data: { session } }) => {
             setSession(session);
+            if (session) fetchRole(session.user.id);
             setLoading(false);
         });
 
@@ -23,6 +30,7 @@ const Register = () => {
             data: { subscription },
         } = supabase.auth.onAuthStateChange((_event, session) => {
             setSession(session);
+            if (session) fetchRole(session.user.id);
         });
 
         return () => subscription.unsubscribe();
@@ -84,7 +92,12 @@ const Register = () => {
                     </p>
                     <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
                         <button 
-                            onClick={() => window.location.href = '/dashboard'}
+                            onClick={() => {
+                                let targetUrl = '/dashboard';
+                                if (userRole === 'super_admin') targetUrl = '/superadmin';
+                                else if (userRole === 'psychologist' || userRole === 'medical_officer') targetUrl = '/professional';
+                                window.location.href = targetUrl;
+                            }}
                             style={{ padding: '0.8rem 2rem', backgroundColor: 'var(--primary-green)', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: '600' }}
                         >
                             Go to Dashboard
